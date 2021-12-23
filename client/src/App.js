@@ -1,9 +1,10 @@
+import Home from "./components/Home";
 
 function App() {
   return (
     <section>
       <div>
-        <h4>hi</h4>
+        <Home/>
       </div>
     </section>
   );
