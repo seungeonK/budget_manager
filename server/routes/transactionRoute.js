@@ -1,15 +1,12 @@
-const express = require('express');
+import express from "express";
+import { getTransactions, addTransaction, deleteTransaction } from '../controllers/transactionController.js';
 
 const router = express.Router();
 ////https://localhost:5000/transaction
 
-router.get('/', (req, res) => {
-    try {
-        res.status(200).send('transaction/')
-    } catch (error) {
-        console.log({ message: error.message });
-    }
-});
+router.get('/', getTransactions);
+router.post('/', addTransaction);
+router.delete('/:id', deleteTransaction);
 
 //export default router <=> import
-module.exports = router;
+export default router;
