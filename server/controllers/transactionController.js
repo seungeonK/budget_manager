@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Transaction from "../models/transactionModel.js";
 
 
@@ -12,25 +13,41 @@ export const getTransactions = async (req, res, next) => {
         //return all transactions as JSON type to the client
         return res.status(200).json(allTransactions);
     } catch (error) {
-        console.log(error);
+        res.status(500).json({ error: error.message});
     }
 }
 
 // @desc GET a transaction
 // @route POST /transactions
 // @access Public
-
-export const addTransaction = (req, res, next) => {
-    res.send('POST transactions');
+export const addTransaction = async (req, res, next) => {
+    try {
+        const newTransaction = await Transaction.create(req.body);
+        return res.status(201).json(newTransaction)
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
 // @desc Delete a transaction
-// @route DELETE /transactions
+// @route DELETE /transactions/:id
 // @access Public
 
-export const deleteTransaction = (req, res, next) => {
-    res.send('DELETE transactions');
+export const deleteTransaction = async (req, res, next) => {
+    try {
+        console.log('server controller deleteTransaction in');
+        const { id } = req.params;
+
+        // if the id is not valid as standarad mongoDB id, it fails to delete
+        if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No transaction with that id');
+        //find DB collection by ID
+        await Transaction.findByIdAndDelete(id);
+
+        return res.json({ message: `transaction: ${id} has been deleted`});
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 

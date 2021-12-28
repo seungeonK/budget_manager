@@ -3,10 +3,13 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 
+
 import transactionRoute from './routes/transactionRoute.js';
 
 const app = express();
 app.use(cors());
+//request body parser
+app.use(express.json());
 
 app.use('/transactions', transactionRoute);
 

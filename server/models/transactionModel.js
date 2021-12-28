@@ -10,7 +10,11 @@ const transactionSchema = mongoose.Schema({
         type: Number,
         required: [true, "Please add a postive or negative number"]
     },
-    balance: Number
+    balance: Number,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const Transaction = mongoose.model('Transaction', transactionSchema);
