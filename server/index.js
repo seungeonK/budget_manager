@@ -1,24 +1,30 @@
-import express from "express";
-import mongoose from "mongoose";
-import cors from "cors";
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
-
-import rootRoutes from "./routes/index.js";
-import budgetRoutes from "./routes/budget.js";
+const transactionRoute = require('./routes/transactionRoute');
 
 const app = express();
-
 app.use(cors());
 
-app.use('/budgets', budgetRoutes);
+app.use('/transaction', transactionRoute);
 
 //will add DB url later
-const CONNECTION_URL = "null";
+const CONNECTION_URL = "mongodb+srv://seungeonk:seungeonk@cluster0.2i8ir.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server Running on Port: ${PORT}`));
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => app.listen(PORT, () => console.log(`Server Running on Port: ${PORT}`)))
+    .catch((error) => console.log(error.message));
 
-app.get('/', rootController);
+
+app.get('/', (req,res) => {
+    try {
+        res.send("This is root controller");
+    } catch (error) {
+        res.send(error);
+    }
+});
 
 
