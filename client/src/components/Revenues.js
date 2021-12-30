@@ -16,8 +16,9 @@ function Revenues() {
             <ListTemplate 
             listName="Revenues" 
             listContents={hardCodedRevenues}
-            addButtonName={"Add Revenue"}>
-            </ListTemplate>
+            addButtonName={"Add Revenue"}
+            noEdit={false} 
+            />
         </div>
     )
 }

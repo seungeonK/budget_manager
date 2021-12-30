@@ -1,9 +1,9 @@
-import React from 'react'
+import { React, Fragment } from 'react'
 import { List, ListItem, ListItemText, ListItemButton, ListItemIcon } from '@mui/material';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const ScrollingList = ({ listContents }) => {
+const ScrollingList = ({ listContents, noEdit }) => {
     return (
         <div>
             <List
@@ -22,16 +22,20 @@ const ScrollingList = ({ listContents }) => {
                         <ListItemText primary={val.name} />
                         <ListItemText primary={val.amount} />
                         <ListItemText primary={val.createdAt} />
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <EditIcon />
-                            </ListItemIcon>
-                        </ListItemButton>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <DeleteIcon />
-                            </ListItemIcon>
-                        </ListItemButton>
+                        {!noEdit &&
+                            <Fragment>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <EditIcon />
+                                    </ListItemIcon>
+                                </ListItemButton>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <DeleteIcon />
+                                    </ListItemIcon>
+                                </ListItemButton>
+                            </Fragment>
+                        }
                     </ListItem>);
                 })}
             </List>

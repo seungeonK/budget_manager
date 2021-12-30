@@ -16,8 +16,9 @@ function Expenses() {
             <ListTemplate 
             listName="Expenses" 
             listContents={hardCodedExpenses}
-            addButtonName={"Add Expense"}>
-            </ListTemplate>
+            addButtonName={"Add Expense"}
+            noEdit={false}
+            />
         </div>
     )
 }

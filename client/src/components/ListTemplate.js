@@ -1,18 +1,21 @@
-import React from 'react'
+import {React} from 'react'
 import { Stack, Button } from '@mui/material';
 import ScrollingList from './ScrollingList';
 
-function ListTemplate({ listName, listContents, addButtonName }) {
+//if noEdit is true, the add, edit and delete buttons will not display
+function ListTemplate({ listName, listContents, addButtonName, noEdit=true }) {
     return (
         <div>
             <Stack spacing={2}>
                 <div>{listName}</div>
                 <div>
-                    <ScrollingList listContents={listContents} />
+                    <ScrollingList listContents={listContents} noEdit={noEdit} />
                 </div>
-                <div>
-                    <Button variant="contained">{addButtonName}</Button>
-                </div>
+                {!noEdit &&
+                    <div>
+                        <Button variant="contained">{addButtonName}</Button>
+                    </div>
+                }
             </Stack>
         </div>
     )
