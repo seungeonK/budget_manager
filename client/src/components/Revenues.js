@@ -11,10 +11,11 @@ function Revenues() {
         {name:"Revenue 6", amount: 100, balance: 0, createdAt:"12/30/21"},
         {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
     ];
+    const totalRevenue = 0;
     return (
         <div>
             <ListTemplate 
-            listName="Revenues" 
+            listName={`Total Revenues: ${totalRevenue}`} 
             listContents={hardCodedRevenues}
             addButtonName={"Add Revenue"}
             noEdit={false} 
