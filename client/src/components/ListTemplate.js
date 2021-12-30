@@ -1,13 +1,18 @@
 import React from 'react'
-import { Stack } from '@mui/material';
-import VirtualizedList from '../VirtualizedList';
+import { Stack, Button } from '@mui/material';
+import ScrollingList from './ScrollingList';
 
-function ListTemplate({listName, listContents}) {
+function ListTemplate({ listName, listContents, addButtonName }) {
     return (
         <div>
             <Stack spacing={2}>
                 <div>{listName}</div>
-                <VirtualizedList></VirtualizedList>
+                <div>
+                    <ScrollingList listContents={listContents} />
+                </div>
+                <div>
+                    <Button variant="contained">{addButtonName}</Button>
+                </div>
             </Stack>
         </div>
     )

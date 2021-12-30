@@ -1,14 +1,20 @@
 import React from 'react'
-import { Button, Stack} from '@mui/material';
-import VirtualizedList from '../VirtualizedList';
+import { Stack } from '@mui/material';
+import Revenues from '../Revenues';
+import Expenses from '../Expenses';
+
 
 const Home = () => {
     return (
         <div>
             <Stack spacing={2}>
-                <div>Expense Tracker</div>
-                <div><Button variant="contained">Hello World</Button></div>
-                <div><VirtualizedList></VirtualizedList></div>
+                <div>
+                    <h1>Expense Tracker</h1>
+                </div>
+                <Stack direction="row" spacing={2}>
+                    <div><Revenues /></div>
+                    <div><Expenses /></div>
+                </Stack>
             </Stack>
         </div>
     )
