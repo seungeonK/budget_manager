@@ -1,19 +1,22 @@
 import React from 'react';
 import Home from "./components/pages/Home";
-//import RevenueForm from './components/pages/RevenueForm';
-//import ExpenseForm from './components/pages/ExpenseForm';
+import AddExpense from './components/pages/forms/AddExpense';
+import AddRevenue from './components/pages/forms/AddRevenue';
+import EditExpense from './components/pages/forms/EditExpense';
+import EditRevenue from './components/pages/forms/EditRevenue';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import FormTemplate from "./components/FormTemplate";
 
 function App() {
-  //<Route exact path="/editRevenue/:revenueID" component={EditMenuItem} />
-  //<Route exact path="/editExpense/:expenseID" component={EditRestaurant} />
+
   return (
     <div>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route exact path="/form" element={<FormTemplate/>} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/addRevenue/:revenueID" element={<AddRevenue />} />
+          <Route exact path="/addExpense/:expenseID" element={<AddExpense />} />
+          <Route exact path="/editRevenue/:revenueID" element={<EditRevenue />} />
+          <Route exact path="/editExpense/:expenseID" element={<EditExpense />} />
         </Routes>
       </Router>
     </div>

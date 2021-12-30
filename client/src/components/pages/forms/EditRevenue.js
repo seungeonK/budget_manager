@@ -1,11 +1,15 @@
 import React from 'react'
+import FormTemplate from '../../FormTemplate'
+import { useParams } from "react-router-dom";
 
-const AddRevenue = () => {
+const EditRevenue = () => {
+    let params = useParams();
     return (
         <div>
-            AddRevenue
+            <div>revenueID: {params.revenueID}</div>
+            <FormTemplate formName={"Edit Revenue"} />
         </div>
     )
 }
 
-export default AddRevenue
+export default EditRevenue
