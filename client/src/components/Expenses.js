@@ -11,10 +11,11 @@ function Expenses() {
         {name:"Expense 6", amount: 100, balance: 0, createdAt:"12/30/21"},
         {name:"Expense 7", amount: 100, balance: 0, createdAt:"12/30/21"},
     ];
+    const totalExpenses = 0;
     return (
         <div>
             <ListTemplate 
-            listName="Expenses" 
+            listName={`Total Expenses: ${totalExpenses}`}
             listContents={hardCodedExpenses}
             addButtonName={"Add Expense"}
             noEdit={false}
