@@ -18,6 +18,7 @@ function Expenses() {
             listName={`Total Expenses: ${totalExpenses}`}
             listContents={hardCodedExpenses}
             addButtonName={"Add Expense"}
+            redirect={"/addExpense"}
             noEdit={false}
             />
         </div>

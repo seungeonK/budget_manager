@@ -1,13 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Switch } from "react-router-dom";
+
 import Home from "./components/pages/Home";
 import AddExpense from './components/pages/forms/AddExpense';
 import AddRevenue from './components/pages/forms/AddRevenue';
 import EditExpense from './components/pages/forms/EditExpense';
 import EditRevenue from './components/pages/forms/EditRevenue';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-
   return (
     <div>
       <Router>

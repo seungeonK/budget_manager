@@ -18,6 +18,7 @@ function Revenues() {
             listName={`Total Revenues: ${totalRevenue}`} 
             listContents={hardCodedRevenues}
             addButtonName={"Add Revenue"}
+            redirect={"/addRevenue"}
             noEdit={false} 
             />
         </div>
