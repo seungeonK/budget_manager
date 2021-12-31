@@ -7,3 +7,7 @@ const url = "http://localhost:5000/transactions";
 export const getTransactions = () => {
     return axios.get(url);
 }
+
+export const createTransaction = () => {
+    return null;
+}

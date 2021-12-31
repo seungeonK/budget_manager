@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { RevenueContext } from '../Contexts/transactionContext';
+
 import ListTemplate from './ListTemplate';
 
 function Revenues() {
@@ -10,12 +12,17 @@ function Revenues() {
         {name:"Revenue 5", amount: 70, balance: 0, createdAt:"12/30/21"},
         {name:"Revenue 6", amount: 100, balance: 0, createdAt:"12/30/21"},
         {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
-    ];
-    const totalRevenue = 0;
+    ] ;
+
+    const { revenues, setRevenue } = useContext(RevenueContext);
+    
+    let total = 0;
+    hardCodedRevenues.forEach(revenue => total += revenue.amount);
+
     return (
         <div>
             <ListTemplate 
-            listName={`Total Revenues: ${totalRevenue}`} 
+            listName={`Total Revenues: ${total}`} 
             listContents={hardCodedRevenues}
             addButtonName={"Add Revenue"}
             redirect={"/addRevenue"}
