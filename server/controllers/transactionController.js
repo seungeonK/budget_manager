@@ -7,7 +7,7 @@ import Transaction from "../models/transactionModel.js";
 // @access Public
 export const getTransactions = async (req, res, next) => {
     try {
-        console.log("getTransaction controller in");
+        console.log("getTransaction controller in\n");
         //look into DB, find all transactions
         const allTransactions = await Transaction.find();
         //return all transactions as JSON type to the client
@@ -22,6 +22,7 @@ export const getTransactions = async (req, res, next) => {
 // @access Public
 export const addTransaction = async (req, res, next) => {
     try {
+        console.log("addTransaction controller in\n");
         const newTransaction = await Transaction.create(req.body);
         return res.status(201).json(newTransaction)
     } catch (error) {
@@ -36,7 +37,7 @@ export const addTransaction = async (req, res, next) => {
 
 export const deleteTransaction = async (req, res, next) => {
     try {
-        console.log('server controller deleteTransaction in');
+        console.log("deleteTransaction controller in\n");
         const { id } = req.params;
 
         // if the id is not valid as standarad mongoDB id, it fails to delete
