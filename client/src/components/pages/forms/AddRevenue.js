@@ -1,5 +1,5 @@
-import React from 'react'
-import FormTemplate from '../../FormTemplate'
+import React from 'react';
+import FormTemplate from '../../FormTemplate';
 
 const AddRevenue = () => {
     return (

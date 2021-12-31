@@ -29,7 +29,7 @@ function History() {
         });
     // whenever 'getTransactions()' function is called, 
     // Re-render this and all of its child components
-    }, [getTransactions])
+    }, [])
     return (
         <div>
             <ListTemplate
