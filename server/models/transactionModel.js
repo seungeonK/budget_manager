@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
 const transactionSchema = mongoose.Schema({
+    // whether it's a revenue or expense
+    type: String,
     name: {
         type: String,
         trim: true,

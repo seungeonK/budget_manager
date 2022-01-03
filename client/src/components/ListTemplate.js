@@ -3,7 +3,7 @@ import { Stack, Button } from '@mui/material';
 import ScrollingList from './ScrollingList';
 
 //if noEdit is true, the add, edit and delete buttons will not display
-function ListTemplate({ listName, listContents, addButtonName, noEdit=true }) {
+function ListTemplate({ listName, listContents, addButtonName, redirect, noEdit=true }) {
     return (
         <div>
             <Stack spacing={2}>
@@ -13,7 +13,7 @@ function ListTemplate({ listName, listContents, addButtonName, noEdit=true }) {
                 </div>
                 {!noEdit &&
                     <div>
-                        <Button variant="contained">{addButtonName}</Button>
+                        <Button href={redirect} variant="contained">{addButtonName}</Button>
                     </div>
                 }
             </Stack>

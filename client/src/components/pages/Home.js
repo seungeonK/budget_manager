@@ -1,5 +1,7 @@
-import React from 'react'
-import { Stack, Divider } from '@mui/material';
+import React, { useContext } from 'react'
+import { Stack } from '@mui/material';
+import { TransactionContext } from '../../Contexts/transactionContext';
+
 import GrossProfit from '../GrossProfit';
 import Revenues from '../Revenues';
 import Expenses from '../Expenses';
@@ -7,6 +9,7 @@ import History from '../History';
 
 
 const Home = () => {
+
     return (
         <div>
             <Stack spacing={4}>
