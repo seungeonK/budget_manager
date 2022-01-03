@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stack } from '@mui/material';
+import { Stack, Divider } from '@mui/material';
 import GrossProfit from '../GrossProfit';
 import Revenues from '../Revenues';
 import Expenses from '../Expenses';
@@ -16,7 +16,11 @@ const Home = () => {
                 <div>
                     <GrossProfit profit={1000} />
                 </div>
-                <Stack direction="row" spacing={2}>
+                <Stack
+                    direction="row"
+                    spacing={2}
+                    divider={<Divider orientation="vertical" flexItem />}
+                >
                     <div><Revenues /></div>
                     <div><Expenses /></div>
                 </Stack>
