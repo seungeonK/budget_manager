@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { RevenueContext } from '../Contexts/transactionContext';
 
 import ListTemplate from './ListTemplate';
 
@@ -14,7 +13,6 @@ function Revenues() {
         {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
     ] ;
 
-    const { revenues, setRevenue } = useContext(RevenueContext);
     
     let total = 0;
     hardCodedRevenues.forEach(revenue => total += revenue.amount);

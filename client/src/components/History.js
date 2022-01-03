@@ -1,9 +1,10 @@
 import {React, useContext} from 'react'
 import ListTemplate from './ListTemplate';
-import { RevenueContext, ExpenseContext } from '../Contexts/transactionContext';
+import {HistoryContext} from '../context/HistoryProvider';
 
 
 function History() {
+    const {History} = useContext(HistoryContext);
     const hardCodedHistory = [
         { name: "Revenue 1", amount: 10, balance: 0, createdAt: "12/30/21" },
         { name: "Revenue 2", amount: 1000, balance: 0, createdAt: "12/30/21" },
@@ -21,14 +22,11 @@ function History() {
         { name: "Expense 7", amount: 100, balance: 0, createdAt: "12/30/21" },
     ];
 
-    const { revenue, setRevenue } = useContext(RevenueContext);
-    const { expense, setExpense } = useContext(ExpenseContext);
-
     return (
         <div>
             <ListTemplate
                 listName="History"
-                listContents={hardCodedHistory}
+                listContents={History}
                 addButtonName={"Add History"}>
             </ListTemplate>
         </div>

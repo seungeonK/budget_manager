@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { ExpenseContext } from '../Contexts/transactionContext';
+import React from 'react'
 
 import ListTemplate from './ListTemplate';
 
@@ -13,8 +12,6 @@ function Expenses() {
         {name:"Expense 6", amount: 100, balance: 0, createdAt:"12/30/21"},
         {name:"Expense 7", amount: 100, balance: 0, createdAt:"12/30/21"},
     ];
-
-    const { expenses, setExpense } = useContext(ExpenseContext);
 
     let totalExpenses = 0;
     hardCodedExpenses.forEach(expense => totalExpenses += expense.amount);
