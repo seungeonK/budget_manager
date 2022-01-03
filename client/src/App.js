@@ -15,13 +15,12 @@ function App() {
   const [ expenses, setExpense ] = useState([]);
 
 
-  useEffect(() => {
-    getTransactions().then(res => {
-      setRevenue(res.data);
-    });
-  // whenever 'getTransactions()' function is called, 
+  useEffect(async() => {
+    const transactions = await getTransactions();
+    setRevenue(transactions.data);
+  // whenever 'getTransactions()' functionis called, 
   // Re-render this and all of its child components
-  }, [getTransactions])
+  }, [])
   return (
     <div>
       <RevenueContext.Provider value={{ revenues, setRevenue }}>
