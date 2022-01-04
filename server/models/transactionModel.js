@@ -12,7 +12,6 @@ const transactionSchema = mongoose.Schema({
         type: Number,
         required: [true, "Please add a postive or negative number"]
     },
-    balance: Number,
     createdAt: {
         type: Date,
         default: Date.now

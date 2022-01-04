@@ -11,7 +11,7 @@ function Revenues() {
         {name:"Revenue 5", amount: 70, balance: 0, createdAt:"12/30/21"},
         {name:"Revenue 6", amount: 100, balance: 0, createdAt:"12/30/21"},
         {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
-    ] ;
+    ];
 
     
     let total = 0;
