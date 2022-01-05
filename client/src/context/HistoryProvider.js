@@ -1,13 +1,24 @@
-import React, { createContext, useState } from "react";
+import { stepConnectorClasses } from "@mui/material";
+import React, { useEffect, createContext, useState } from "react";
 
-const HistoryContext = createContext();
+import { getTransactions } from '../axios/axios';
+
+const HistoryContext = createContext({});
 
 const HistoryProvider = ({ children }) => {
-  const [History, setHistory] = useState([]);
+
+  const [history, setHistory] = useState([]);
+  
+  useEffect(() => {
+    console.log('HistoryProvider');
+    getTransactions().then(res => {
+      setHistory(res.data);
+    })
+  },[]);
   
   return (
     <HistoryContext.Provider
-      value={{ History, setHistory }}
+      value={{ history, setHistory }}
     >
       {children}
     </HistoryContext.Provider>

@@ -10,7 +10,6 @@ export const getTransactions = async (req, res, next) => {
         // console.log("getTransaction controller in");
         //look into DB, find all transactions
         const allTransactions = await Transaction.find();
-        console.log("getTransactions:", allTransactions);
         //return all transactions as JSON type to the client
         return res.status(200).json(allTransactions);
     } catch (error) {

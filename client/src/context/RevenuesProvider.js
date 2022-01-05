@@ -1,13 +1,16 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 const RevenuesContext = createContext();
 
 const RevenuesProvider = ({ children }) => {
-  const [Revenues, setRevenues] = useState([]);
-  
+  const [revenues, setRevenues] = useState([]);
+  useEffect(() => {
+    console.log('RevenuesProvider');
+  },[])
+
   return (
     <RevenuesContext.Provider
-      value={{ Revenues, setRevenues }}
+      value={{ revenues, setRevenues }}
     >
       {children}
     </RevenuesContext.Provider>
