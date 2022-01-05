@@ -12,7 +12,7 @@ function Revenues() {
         {name:"Revenue 5", amount: 70, balance: 0, createdAt:"12/30/21"},
         {name:"Revenue 6", amount: 100, balance: 0, createdAt:"12/30/21"},
         {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
-    ] ;
+    ];
 
     const { revenues, setRevenue } = useContext(RevenueContext);
     
@@ -23,7 +23,7 @@ function Revenues() {
         <div>
             <ListTemplate 
             listName={`Total Revenues: ${total}`} 
-            listContents={hardCodedRevenues}
+            listContents={revenues}
             addButtonName={"Add Revenue"}
             redirect={"/addRevenue"}
             noEdit={false} 
