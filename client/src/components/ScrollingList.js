@@ -1,6 +1,6 @@
 import { React, Fragment } from 'react'
 import moment from 'moment';
-import { List, ListItem, ListItemText, ListItemButton, ListItemIcon } from '@mui/material';
+import { List, ListItem, ListItemText, IconButton } from '@mui/material';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -19,25 +19,22 @@ const ScrollingList = ({ listContents, noEdit }) => {
                 }}
             >
                 {listContents && listContents.map((val) => {
-                    return (<ListItem>
-                        <ListItemText primary={val.name} />
-                        <ListItemText primary={val.amount} />
-                        <ListItemText primary={moment(val.createdAt).format("DD/MM/YY")} />
-                        {!noEdit &&
-                            <Fragment>
-                                <ListItemButton>
-                                    <ListItemIcon>
+                    return (
+                        <ListItem
+                            secondaryAction={!noEdit &&
+                                <Fragment>
+                                    <IconButton edge="end">
                                         <EditIcon />
-                                    </ListItemIcon>
-                                </ListItemButton>
-                                <ListItemButton>
-                                    <ListItemIcon>
+                                    </IconButton>
+                                    <IconButton edge="end">
                                         <DeleteIcon />
-                                    </ListItemIcon>
-                                </ListItemButton>
-                            </Fragment>
-                        }
-                    </ListItem>);
+                                    </IconButton>
+                                </Fragment>
+                            }>
+                            <ListItemText primary={val.name} />
+                            <ListItemText primary={val.amount} />
+                            <ListItemText primary={moment(val.createdAt).format("DD/MM/YY")} />
+                        </ListItem>);
                 })}
             </List>
         </div>

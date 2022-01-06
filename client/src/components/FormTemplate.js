@@ -23,9 +23,9 @@ const FormTemplate = ({ formName }) => {
                             required
                             margin="dense"
                         />
+                        <Button variant="contained">{formName}</Button>
                     </form>
                 </div>
-                <div><Button variant="contained">{formName}</Button></div>
             </Stack>
         </div>
     )
