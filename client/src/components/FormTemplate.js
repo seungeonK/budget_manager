@@ -6,6 +6,7 @@ import { createTransaction } from '../axios/axios';
 
 
 //formName = Add Revenue, Edit Revenue, Add Expense, Delete Expense
+
 const FormTemplate = ({ formName, formType }) => {
 
     const [transaction, setTransaction] = useState({
@@ -27,6 +28,7 @@ const FormTemplate = ({ formName, formType }) => {
                 <div>
                     <form noValidate autoComplete="off" onSubmit={handleSubmit}>
                         <TextField
+                            onChange={e=>console.log(e.target.value)}
                             label="Name"
                             variant="outlined"
                             fullWidth
@@ -35,6 +37,7 @@ const FormTemplate = ({ formName, formType }) => {
                             onChange={e => setTransaction({...transaction, name: e.target.value})}
                         />
                         <TextField
+                            onChange={e=>console.log(e.target.value)}
                             label="Amount"
                             variant="outlined"
                             fullWidth
@@ -42,7 +45,7 @@ const FormTemplate = ({ formName, formType }) => {
                             margin="dense"
                             onChange={e => setTransaction({...transaction, amount: e.target.value})}
                         />
-                    <Button type="submit" variant="contained">{formName}</Button>
+                        <Button type="submit" variant="contained">{formName}</Button>
                     </form>
                 </div>
             </Stack>
