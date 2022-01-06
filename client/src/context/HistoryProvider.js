@@ -9,13 +9,6 @@ const HistoryProvider = ({ children }) => {
 
   const [history, setHistory] = useState([]);
   
-  useEffect(() => {
-    console.log('HistoryProvider');
-    getTransactions().then(res => {
-      setHistory(res.data);
-    })
-  },[]);
-  
   return (
     <HistoryContext.Provider
       value={{ history, setHistory }}

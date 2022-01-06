@@ -4,6 +4,7 @@ const RevenuesContext = createContext();
 
 const RevenuesProvider = ({ children }) => {
   const [revenues, setRevenues] = useState([]);
+  
   useEffect(() => {
     console.log('RevenuesProvider');
   },[])

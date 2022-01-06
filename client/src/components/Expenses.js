@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react'
+ import React, { useEffect, useContext, useState } from 'react'
 
 import ListTemplate from './ListTemplate';
 import { ExpensesContext } from '../context/ExpensesProvider';
@@ -16,7 +16,7 @@ function Expenses() {
     // ];
 
 
-    
+    console.log('Expense');
     // history.forEach(h => totalExpenses += h.amount);
 
     return (

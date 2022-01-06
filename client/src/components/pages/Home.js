@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { getTransactions } from '../../axios/axios';
 import { Stack, Divider } from '@mui/material';
 
@@ -8,18 +8,32 @@ import Expenses from '../Expenses';
 import History from '../History';
 
 import { HistoryContext } from '../../context/HistoryProvider';
+import { RevenuesContext } from '../../context/RevenuesProvider';
+import { ExpensesContext } from '../../context/ExpensesProvider';
 
 
 const Home = () => {
     const { setHistory } = useContext(HistoryContext);
+    const { setRevenues } = useContext(RevenuesContext);
+    const { setExpenses } = useContext(ExpensesContext);
     
+    const [ profit, setProfit ] = useState(0);
+    console.log('Home');
     useEffect(() => {
         getTransactions().then(res => {
             setHistory(res.data)
+            setRevenues(res.data.filter(h => h.type === "revenue"));
+            setExpenses(res.data.filter(h => h.type === "expense"));
+            //setting up the gross profit
+            res.data.forEach((value, index) => {
+                if(value.type === "revenue") setProfit(prevProfit => prevProfit + value.amount);
+                else setProfit(prevProfit => prevProfit - value.amount);
+            });
         });
+        
         // whenever 'getTransactions()' function is called, 
         // Re-render this and all of its child components
-    }, [getTransactions])
+    }, [])
 
     return (
         <div>
@@ -28,7 +42,7 @@ const Home = () => {
                     <h1>Expense Tracker</h1>
                 </div>
                 <div>
-                    <GrossProfit profit={1000} />
+                    <GrossProfit profit={profit} />
                 </div>
                 <Stack
                     direction="row"

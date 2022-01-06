@@ -7,11 +7,10 @@ const ExpensesContext = createContext();
 const ExpensesProvider = ({ children }) => {
   // const { history } = useContext(HistoryContext);
   const [ expenses, setExpenses ] = useState([]);
-  
+
   useEffect(() => {
-    //pull expenses out of history object
     console.log('ExpensesProvider');
-  },[])
+  }, [])
 
   return (
     <ExpensesContext.Provider
