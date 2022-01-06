@@ -1,28 +1,28 @@
 import React, { useContext } from 'react'
-import { RevenueContext } from '../Contexts/transactionContext';
 
 import ListTemplate from './ListTemplate';
 
-function Revenues() {
-    const hardCodedRevenues = [
-        {name:"Revenue 1", amount: 10, balance: 0, createdAt:"12/30/21"},
-        {name:"Revenue 2", amount: 1000, balance: 0, createdAt:"12/30/21"},
-        {name:"Revenue 3", amount: 50, balance: 0, createdAt:"12/30/21"},
-        {name:"Revenue 4", amount: 3, balance: 0, createdAt:"12/30/21"},
-        {name:"Revenue 5", amount: 70, balance: 0, createdAt:"12/30/21"},
-        {name:"Revenue 6", amount: 100, balance: 0, createdAt:"12/30/21"},
-        {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
-    ];
+import {RevenuesContext} from '../context/RevenuesProvider'
 
-    const { revenues, setRevenue } = useContext(RevenueContext);
-    
-    let total = 0;
-    hardCodedRevenues.forEach(revenue => total += revenue.amount);
+function Revenues() {
+    const { revenues } = useContext(RevenuesContext);
+
+    // const revenues = [
+    //     {name:"Revenue 1", amount: 10, balance: 0, createdAt:"12/30/21"},
+    //     {name:"Revenue 2", amount: 1000, balance: 0, createdAt:"12/30/21"},
+    //     {name:"Revenue 3", amount: 50, balance: 0, createdAt:"12/30/21"},
+    //     {name:"Revenue 4", amount: 3, balance: 0, createdAt:"12/30/21"},
+    //     {name:"Revenue 5", amount: 70, balance: 0, createdAt:"12/30/21"},
+    //     {name:"Revenue 6", amount: 100, balance: 0, createdAt:"12/30/21"},
+    //     {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
+    // ];
+    let totalRevenue = 0;
+    revenues.forEach(revenue => totalRevenue += revenue.amount);
 
     return (
         <div>
             <ListTemplate 
-            listName={`Total Revenues: ${total}`} 
+            listName={`Total Revenues: ${totalRevenue}`} 
             listContents={revenues}
             addButtonName={"Add Revenue"}
             redirect={"/addRevenue"}

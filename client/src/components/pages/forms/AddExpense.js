@@ -4,7 +4,7 @@ import FormTemplate from '../../FormTemplate'
 const AddExpense = () => {
     return (
         <div>
-            <FormTemplate formName={"Add Expense"} />
+            <FormTemplate formName={"Add Expense"} formType={"expense"} />
         </div>
     )
 }
