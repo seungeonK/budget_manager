@@ -16,15 +16,13 @@ function Revenues() {
     //     {name:"Revenue 6", amount: 100, balance: 0, createdAt:"12/30/21"},
     //     {name:"Revenue 7", amount: 100, balance: 0, createdAt:"12/30/21"},
     // ];
-
-    
-    let total = 0;
-    revenues.forEach(revenue => total += revenue.amount);
+    let totalRevenue = 0;
+    revenues.forEach(revenue => totalRevenue += revenue.amount);
 
     return (
         <div>
             <ListTemplate 
-            listName={`Total Revenues: ${total}`} 
+            listName={`Total Revenues: ${totalRevenue}`} 
             listContents={revenues}
             addButtonName={"Add Revenue"}
             redirect={"/addRevenue"}
