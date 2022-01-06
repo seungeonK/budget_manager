@@ -18,8 +18,8 @@ const ScrollingList = ({ listContents, noEdit }) => {
                     '& ul': { padding: 0 },
                 }}
             >
-                {listContents && listContents.map((val) => {
-                    return (<ListItem>
+                {listContents && listContents.map((val,index) => {
+                    return (<ListItem key={val._id}>
                         <ListItemText primary={val.name} />
                         <ListItemText primary={val.amount} />
                         <ListItemText primary={moment(val.createdAt).format("DD/MM/YY")} />
