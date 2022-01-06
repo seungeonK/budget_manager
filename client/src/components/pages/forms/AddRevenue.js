@@ -4,7 +4,7 @@ import FormTemplate from '../../FormTemplate';
 const AddRevenue = () => {
     return (
         <div>
-            <FormTemplate formName={"Add Revenue"} />
+            <FormTemplate formName={"Add Revenue"} formType={"revenue"} />
         </div>
     )
 }

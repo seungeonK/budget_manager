@@ -1,29 +1,20 @@
-import React, { useContext } from 'react'
-import { ExpenseContext } from '../Contexts/transactionContext';
+ import React, { useEffect, useContext, useState } from 'react'
 
 import ListTemplate from './ListTemplate';
+import { ExpensesContext } from '../context/ExpensesProvider';
 
 function Expenses() {
-    const hardCodedExpenses = [
-        {name:"Expense 1", amount: 10, balance: 0, createdAt:"12/30/21"},
-        {name:"Expense 2", amount: 1000, balance: 0, createdAt:"12/30/21"},
-        {name:"Expense 3", amount: 50, balance: 0, createdAt:"12/30/21"},
-        {name:"Expense 4", amount: 3, balance: 0, createdAt:"12/30/21"},
-        {name:"Expense 5", amount: 70, balance: 0, createdAt:"12/30/21"},
-        {name:"Expense 6", amount: 100, balance: 0, createdAt:"12/30/21"},
-        {name:"Expense 7", amount: 100, balance: 0, createdAt:"12/30/21"},
-    ];
+    const { expenses } = useContext(ExpensesContext);
 
-    const { expenses, setExpense } = useContext(ExpenseContext);
-
-    let totalExpenses = 0;
-    hardCodedExpenses.forEach(expense => totalExpenses += expense.amount);
+    let totalExpense = 0;
+    
+    expenses.forEach(expense => totalExpense += expense.amount);
 
     return (
         <div>
             <ListTemplate 
-            listName={`Total Expenses: ${totalExpenses}`}
-            listContents={hardCodedExpenses}
+            listName={`Total Expenses: ${totalExpense}`}
+            listContents={expenses}
             addButtonName={"Add Expense"}
             redirect={"/addExpense"}
             noEdit={false}

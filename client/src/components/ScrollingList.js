@@ -1,4 +1,5 @@
 import { React, Fragment } from 'react'
+import moment from 'moment';
 import { List, ListItem, ListItemText, ListItemButton, ListItemIcon } from '@mui/material';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -17,11 +18,11 @@ const ScrollingList = ({ listContents, noEdit }) => {
                     '& ul': { padding: 0 },
                 }}
             >
-                {listContents.map((val) => {
+                {listContents && listContents.map((val) => {
                     return (<ListItem>
                         <ListItemText primary={val.name} />
                         <ListItemText primary={val.amount} />
-                        <ListItemText primary={val.createdAt} />
+                        <ListItemText primary={moment(val.createdAt).format("DD/MM/YY")} />
                         {!noEdit &&
                             <Fragment>
                                 <ListItemButton>
