@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { TextField, Button, Stack } from '@mui/material';
+
 import { createTransaction } from '../axios/axios';
 
-import { TextField, Button, Stack } from '@mui/material';
+
 //formName = Add Revenue, Edit Revenue, Add Expense, Delete Expense
 const FormTemplate = ({ formName, formType }) => {
+
     const [transaction, setTransaction] = useState({
         type: formType, name: '', amount: ''
     });
 
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         createTransaction(transaction);
+        navigate('/');
     };
 
     return (

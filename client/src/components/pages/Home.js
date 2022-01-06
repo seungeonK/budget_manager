@@ -18,7 +18,7 @@ const Home = () => {
     const { setExpenses } = useContext(ExpensesContext);
     
     const [ profit, setProfit ] = useState(0);
-    console.log('Home');
+    
     useEffect(() => {
         getTransactions().then(res => {
             setHistory(res.data)

@@ -10,7 +10,7 @@ export const getTransactions = async (req, res, next) => {
         // console.log("getTransaction controller in");
         //look into DB, find all transactions
         const allTransactions = await Transaction.find();
-        console.log("get transactions: ", allTransactions)
+        console.log('getTransaction controller in\n');
         //return all transactions as JSON type to the client
         return res.status(200).json(allTransactions);
     } catch (error) {
@@ -23,8 +23,8 @@ export const getTransactions = async (req, res, next) => {
 // @access Public
 export const addTransaction = async (req, res, next) => {
     try {
-        console.log("addTransaction controller in\n");
         const newTransaction = await Transaction.create(req.body);
+        console.log("addTransaction controller in\n");
         return res.status(201).json(newTransaction)
     } catch (error) {
         console.log(error);
