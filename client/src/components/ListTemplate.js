@@ -17,6 +17,9 @@ function ListTemplate({
     return (
         <Card
             variant="outlined"
+            sx={{
+                bgcolor: 'secondary.main'
+            }}
         >
             <CardHeader
                 title={listName.toUpperCase()}

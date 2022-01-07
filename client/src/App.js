@@ -14,12 +14,17 @@ import { CssBaseline } from '@mui/material';
 
 const theme = createTheme({
   palette: {
-    primary: brown,
+    primary: {
+      main: "#ffffff"
+    },
+    secondary:{
+      main: "#445280"
+    },
     text: {
-      primary:"#5d4037"
+      primary:"#ffffff"
     },
     background: {
-      default: "#faf7f5"
+      default: "#232e52"
     }
   },
   typography: {

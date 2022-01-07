@@ -5,13 +5,19 @@ import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 const GrossProfit = ({ profit }) => {
     return (
         <div>
-            <Card variant="outlined" sx={{p:6}}>
+            <Card
+                variant="outlined"
+                sx={{ 
+                    p: 6,
+                    bgcolor:'secondary.main' 
+                }}
+            >
                 <Typography
                     variant="h4"
                     component="h2"
                     align="center"
                 >
-                    <MonetizationOnIcon fontSize="large"/>
+                    <MonetizationOnIcon fontSize="large" />
                 </Typography>
                 <Typography
                     variant="h6"

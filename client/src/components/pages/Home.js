@@ -6,8 +6,10 @@ import GrossProfit from '../GrossProfit';
 import Revenues from '../Revenues';
 import Expenses from '../Expenses';
 import History from '../History';
+import Title from '../../components/Title'
 
 import { HistoryContext } from '../../context/HistoryProvider';
+import { letterSpacing } from '@mui/system';
 
 const Home = () => {
     const { setHistory } = useContext(HistoryContext);
@@ -24,13 +26,7 @@ const Home = () => {
         <div>
             <Stack>
                 <Box sx={{my:3}}>
-                    <Typography
-                        variant="h3"
-                        component="h1"
-                        align="center"
-                    >
-                        Expense Tracker
-                    </Typography>
+                    <Title>Expense Tracker</Title>
                 </Box>
                 <Box sx={{mb:3}}>
                     <GrossProfit profit={1000} />

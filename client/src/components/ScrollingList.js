@@ -11,7 +11,7 @@ const ScrollingList = ({ listContents, noEdit }) => {
                 sx={{
                     width: '100%',
                     maxWidth: 1000,
-                    bgcolor: 'background.paper',
+                    bgcolor: 'secondary.main',
                     position: 'relative',
                     overflow: 'auto',
                     maxHeight: 300,
@@ -23,10 +23,10 @@ const ScrollingList = ({ listContents, noEdit }) => {
                         <ListItem
                             secondaryAction={!noEdit &&
                                 <Fragment>
-                                    <IconButton edge="end">
-                                        <EditIcon />
+                                    <IconButton edge="end" sx={{color:"white"}}>
+                                        <EditIcon/>
                                     </IconButton>
-                                    <IconButton edge="end">
+                                    <IconButton edge="end" sx={{color:"white"}}>
                                         <DeleteIcon />
                                     </IconButton>
                                 </Fragment>
