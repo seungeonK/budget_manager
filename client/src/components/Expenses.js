@@ -18,7 +18,7 @@ function Expenses() {
             addButtonName={"Add Expense"}
             redirect={"/addExpense"}
             noEdit={false}
-            total={totalExpense}
+            total={`- $${totalExpense}`}
             noTotal={false}
             labelBackgroundColor='red'
             />

@@ -28,7 +28,7 @@ function Revenues() {
             addButtonName={"Add Revenue"}
             redirect={"/addRevenue"}
             noEdit={false} 
-            total={totalRevenue}
+            total={`$${totalRevenue}`}
             noTotal={false}
             labelBackgroundColor='green'
             />

@@ -51,7 +51,7 @@ function ListTemplate({
                                     variant='h4'
                                     component={"h3"}
                                 >
-                                    ${total}
+                                    {total}
                                 </Typography>
                             </div>
                         }
