@@ -17,11 +17,11 @@ const theme = createTheme({
     primary: {
       main: "#ffffff"
     },
-    secondary:{
+    secondary: {
       main: "#445280"
     },
     text: {
-      primary:"#ffffff"
+      primary: "#ffffff"
     },
     background: {
       default: "#232e52"
@@ -34,7 +34,7 @@ const theme = createTheme({
     fontWeightMedium: 600,
     fontWeightBold: 700,
 
-  }
+  },
 });
 
 function App() {

@@ -35,7 +35,7 @@ const ScrollingList = ({ listContents, noEdit }) => {
                             key={val._id}
                         >
                             <ListItemText primary={val.name} />
-                            <ListItemText primary={val.amount} />
+                            <ListItemText primary={val.type == "revenue" ? val.amount : `- ${val.amount}`} />
                             <ListItemText primary={moment(val.createdAt).format("DD/MM/YY")} />
                         </ListItem>);
                 })}
