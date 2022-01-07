@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Stack } from '@mui/material';
+import { TextField, Button, Stack, Card } from '@mui/material';
 
 import { createTransaction } from '../axios/axios';
 
@@ -24,28 +24,63 @@ const FormTemplate = ({ formName, formType }) => {
     return (
         <div>
             <Stack spacing={2}>
-                <div><h1>{formName}</h1></div>
+                <div><Title>{formName}</Title></div>
                 <div>
                     <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-                        <TextField
-                            onChange={e=>console.log(e.target.value)}
-                            label="Name"
+                        <Card
                             variant="outlined"
-                            fullWidth
-                            required
-                            margin="dense"
-                            onChange={e => setTransaction({...transaction, name: e.target.value})}
-                        />
-                        <TextField
-                            onChange={e=>console.log(e.target.value)}
-                            label="Amount"
-                            variant="outlined"
-                            fullWidth
-                            required
-                            margin="dense"
-                            onChange={e => setTransaction({...transaction, amount: e.target.value})}
-                        />
-                        <Button type="submit" variant="contained">{formName}</Button>
+                            sx={{
+                                bgcolor: 'secondary.main',
+                                p: 3,
+                                mb: 3
+                            }}
+                        >
+                            <TextField
+                                onChange={e => setTransaction({ ...transaction, name: e.target.value })}
+                                label="Name"
+                                variant="outlined"
+                                fullWidth
+                                required
+                                margin="dense"
+                                sx={{
+                                    bgcolor: "white",
+                                    borderRadius: 1
+                                }}
+                            />
+                            <TextField
+                                onChange={e => setTransaction({ ...transaction, amount: e.target.value })}
+                                label="Amount"
+                                variant="outlined"
+                                fullWidth
+                                required
+                                margin="dense"
+                                sx={{
+                                    bgcolor: "white",
+                                    borderRadius: 1,
+                                    mb: 5
+                                }}
+                            />
+                            <Stack
+                                direction="row"
+                                spacing={2}
+                                sx={{
+                                    justifyContent: "center"
+                                }}
+                            >
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                >
+                                    {formName}
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    onClick={() => { navigate("/") }}
+                                >
+                                    Cancel
+                                </Button>
+                            </Stack>
+                        </Card>
                     </form>
                 </div>
             </Stack>

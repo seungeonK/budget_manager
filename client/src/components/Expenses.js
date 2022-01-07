@@ -13,11 +13,14 @@ function Expenses() {
     return (
         <div>
             <ListTemplate 
-            listName={`Total Expenses: ${totalExpense}`}
+            listName={`Expenses`}
             listContents={expenses}
             addButtonName={"Add Expense"}
             redirect={"/addExpense"}
             noEdit={false}
+            total={totalExpense}
+            noTotal={false}
+            labelBackgroundColor='red'
             />
         </div>
     )

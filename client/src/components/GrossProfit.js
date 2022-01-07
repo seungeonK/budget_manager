@@ -1,10 +1,39 @@
 import React from 'react'
-import { Stack } from '@mui/material';
+import { Typography, Card } from '@mui/material';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 
-const GrossProfit = ({profit}) => {
+const GrossProfit = ({ profit }) => {
     return (
         <div>
-            Gross Profit: {profit}
+            <Card
+                variant="outlined"
+                sx={{ 
+                    p: 6,
+                    bgcolor:'secondary.main' 
+                }}
+            >
+                <Typography
+                    variant="h4"
+                    component="h2"
+                    align="center"
+                >
+                    <MonetizationOnIcon fontSize="large" />
+                </Typography>
+                <Typography
+                    variant="h6"
+                    component="h2"
+                    align="center"
+                >
+                    {"Gross Profit".toUpperCase()}
+                </Typography>
+                <Typography
+                    variant="h4"
+                    component="h3"
+                    align="center"
+                >
+                    ${profit}
+                </Typography>
+            </Card>
         </div>
     )
 }

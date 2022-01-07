@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import { Typography } from '@mui/material';
+import React, { useContext, Fragment } from 'react'
 
 import ListTemplate from './ListTemplate';
 
@@ -22,11 +23,14 @@ function Revenues() {
     return (
         <div>
             <ListTemplate 
-            listName={`Total Revenues: ${totalRevenue}`} 
+            listName={"Revenues"} 
             listContents={revenues}
             addButtonName={"Add Revenue"}
             redirect={"/addRevenue"}
             noEdit={false} 
+            total={totalRevenue}
+            noTotal={false}
+            labelBackgroundColor='green'
             />
         </div>
     )

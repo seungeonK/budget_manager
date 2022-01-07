@@ -1,6 +1,7 @@
 import { React, Fragment } from 'react'
 import moment from 'moment';
-import { List, ListItem, ListItemText, ListItemButton, ListItemIcon } from '@mui/material';
+
+import { List, ListItem, ListItemText, IconButton } from '@mui/material';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -11,33 +12,32 @@ const ScrollingList = ({ listContents, noEdit }) => {
                 sx={{
                     width: '100%',
                     maxWidth: 1000,
-                    bgcolor: 'background.paper',
+                    bgcolor: 'secondary.main',
                     position: 'relative',
                     overflow: 'auto',
                     maxHeight: 300,
                     '& ul': { padding: 0 },
                 }}
             >
-                {listContents && listContents.map((val,index) => {
-                    return (<ListItem key={val._id}>
-                        <ListItemText primary={val.name} />
-                        <ListItemText primary={val.amount} />
-                        <ListItemText primary={moment(val.createdAt).format("DD/MM/YY")} />
-                        {!noEdit &&
-                            <Fragment>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        <EditIcon />
-                                    </ListItemIcon>
-                                </ListItemButton>
-                                <ListItemButton>
-                                    <ListItemIcon>
+                {listContents && listContents.map((val) => {
+                    return (
+                        <ListItem
+                            secondaryAction={!noEdit &&
+                                <Fragment>
+                                    <IconButton edge="end" sx={{ color: "white" }}>
+                                        <EditIcon/>
+                                    </IconButton>
+                                    <IconButton edge="end" sx={{ color: "white" }}>
                                         <DeleteIcon />
-                                    </ListItemIcon>
-                                </ListItemButton>
-                            </Fragment>
-                        }
-                    </ListItem>);
+                                    </IconButton>
+                                </Fragment>
+                            }
+                            key={val._id}
+                        >
+                            <ListItemText primary={val.name} />
+                            <ListItemText primary={val.amount} />
+                            <ListItemText primary={moment(val.createdAt).format("DD/MM/YY")} />
+                        </ListItem>);
                 })}
             </List>
         </div>

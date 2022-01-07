@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { getTransactions } from '../../axios/axios';
-import { Stack, Divider } from '@mui/material';
+import { Stack, Typography, Grid, Box } from '@mui/material';
+import { letterSpacing } from '@mui/system';
 
 import GrossProfit from '../GrossProfit';
 import Revenues from '../Revenues';
 import Expenses from '../Expenses';
 import History from '../History';
+import Title from '../../components/Title'
 
 import { HistoryContext } from '../../context/HistoryProvider';
 import { RevenuesContext } from '../../context/RevenuesProvider';
@@ -37,22 +39,22 @@ const Home = () => {
 
     return (
         <div>
-            <Stack spacing={4}>
-                <div>
-                    <h1>Expense Tracker</h1>
-                </div>
-                <div>
-                    <GrossProfit profit={profit} />
-                </div>
-                <Stack
-                    direction="row"
-                    spacing={2}
-                    divider={<Divider orientation="vertical" flexItem />}
-                >
-                    <div><Revenues /></div>
-                    <div><Expenses /></div>
-                </Stack>
-                <div><History /></div>
+            <Stack>
+                <Box sx={{my:3}}>
+                    <Title>Expense Tracker</Title>
+                </Box>
+                <Box sx={{mb:3}}>
+                    <GrossProfit profit={1000} />
+                </Box>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <Revenues />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                        <Expenses />
+                    </Grid>
+                </Grid>
+                <Box sx={{my:3}}><History /></Box>
             </Stack>
         </div>
     )
