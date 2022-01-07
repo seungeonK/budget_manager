@@ -4,7 +4,7 @@ import { TextField, Button, Stack, Card } from '@mui/material';
 
 import { createTransaction } from '../axios/axios';
 
-
+import Title from '../components/Title'
 //formName = Add Revenue, Edit Revenue, Add Expense, Delete Expense
 
 const FormTemplate = ({ formName, formType }) => {
