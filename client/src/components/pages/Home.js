@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useCallback } from 'react'
 import { getTransactions } from '../../axios/axios';
 import { Stack, Typography, Grid, Box } from '@mui/material';
 import { letterSpacing } from '@mui/system';
@@ -20,19 +20,18 @@ const Home = () => {
     const { setExpenses } = useContext(ExpensesContext);
     
     const [ profit, setProfit ] = useState(0);
-    
+
     useEffect(() => {
         getTransactions().then(res => {
             setHistory(res.data)
             setRevenues(res.data.filter(h => h.type === "revenue"));
             setExpenses(res.data.filter(h => h.type === "expense"));
             //setting up the gross profit
-            res.data.forEach((value, index) => {
+            res.data.forEach((value) => {
                 if(value.type === "revenue") setProfit(prevProfit => prevProfit + value.amount);
                 else setProfit(prevProfit => prevProfit - value.amount);
             });
         });
-        
         // whenever 'getTransactions()' function is called, 
         // Re-render this and all of its child components
     }, [])

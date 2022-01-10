@@ -5,7 +5,13 @@ import { List, ListItem, ListItemText, IconButton } from '@mui/material';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
+import { deleteTransaction } from '../axios/axios';
+
 const ScrollingList = ({ listContents, noEdit }) => {
+
+    const deleteItem = id => {
+        deleteTransaction(id);
+    }
     return (
         <div>
             <List
@@ -24,10 +30,10 @@ const ScrollingList = ({ listContents, noEdit }) => {
                         <ListItem
                             secondaryAction={!noEdit &&
                                 <Fragment>
-                                    <IconButton edge="end" sx={{ color: "white" }}>
+                                    <IconButton edge="end" sx={{ color: "white" }} onClick={() => console.log('Edit Button Clicked' + val._id)}>
                                         <EditIcon/>
                                     </IconButton>
-                                    <IconButton edge="end" sx={{ color: "white" }}>
+                                    <IconButton edge="end" sx={{ color: "white" }} onClick={() => deleteItem(val._id)}>
                                         <DeleteIcon />
                                     </IconButton>
                                 </Fragment>
