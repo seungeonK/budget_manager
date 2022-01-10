@@ -44,7 +44,7 @@ const Home = () => {
                     <Title>Expense Tracker</Title>
                 </Box>
                 <Box sx={{mb:3}}>
-                    <GrossProfit profit={1000} />
+                    <GrossProfit profit={profit} />
                 </Box>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
