@@ -42,9 +42,11 @@ const FormTemplate = ({ formName, formType }) => {
                                 fullWidth
                                 required
                                 margin="dense"
+                                color="primary"
                                 sx={{
                                     bgcolor: "white",
-                                    borderRadius: 1
+                                    borderRadius: 1,
+                                    input: { color: '#232e52'}
                                 }}
                             />
                             <TextField
@@ -57,6 +59,7 @@ const FormTemplate = ({ formName, formType }) => {
                                 sx={{
                                     bgcolor: "white",
                                     borderRadius: 1,
+                                    input: { color: '#232e52'},
                                     mb: 5
                                 }}
                             />

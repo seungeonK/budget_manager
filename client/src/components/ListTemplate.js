@@ -62,7 +62,9 @@ function ListTemplate({
                                 >
                                     <IconButton
                                         href={redirect}
-                                        color="primary"
+                                        sx={{
+                                            color: "#ffffff"
+                                        }}
                                     >
                                         <AddCircleIcon fontSize="large" />
                                     </IconButton>
